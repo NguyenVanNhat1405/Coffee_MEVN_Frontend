@@ -20,7 +20,7 @@ export default {
     <input
       type="text"
       class="form-control"
-      placeholder="Enter the title or author"
+      placeholder="Enter the coffee"
       :value="modelValue"
       @input="updateModelValue"
       @keyup.enter="submit"

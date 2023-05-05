@@ -2,13 +2,13 @@
   <div class="d-flex container navbar bg-light" style="border-radius: 20px">
     <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand" href="/">
-        <img src="../assets/coffee.jpg" alt="" />
+        <img src="../assets/logo2.jpg" style="height: 200px" alt="" />
       </a>
     </nav>
     <nav class="navbar navbar-expand-lg flex-row-reverse">
       <ul class="navbar-nav">
         <li class="nav-item" v-if="!isLoggedIn">
-          <router-link :to="{ name: 'Coffee' }" class="nav-link text-dark">
+          <router-link :to="{ name: 'home' }" class="nav-link text-dark">
             COFFEE
           </router-link>
         </li>
@@ -41,7 +41,6 @@ export default {
     };
   },
   mounted() {
-    // Kiểm tra xem người dùng đã đăng nhập hay chưa
     const user = JSON.parse(localStorage.getItem("user"));
     if (user && user.token) {
       this.isLoggedIn = true;
@@ -49,11 +48,8 @@ export default {
   },
   methods: {
     logout() {
-      // Xóa dữ liệu của người dùng từ local storage và set lại isLoggedIn là false
       localStorage.removeItem("user");
       this.isLoggedIn = false;
-
-      // Redirect đến trang đăng nhập
       this.$router.push("/login");
     },
   },
